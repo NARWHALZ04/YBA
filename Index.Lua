@@ -1,3 +1,5 @@
+--THANKS TO XHEPTC FOR LIBRARY, CHECK HIS LIBRARY OUT.
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Narwhals", "BloodTheme")
 
@@ -8,7 +10,7 @@ local PlayerSection1 = PlayerTab:NewSection("Classic") -- Sections fit into the 
 --Toggles & Buttons // Classic Section
 
 --SPEED 
-PlayerSection1:NewSlider("Walkspeed", "Increases your walkspeed.", 500, 1, function(s) -- 500 (MaxValue) | 0 (MinValue)
+PlayerSection1:NewSlider("Walkspeed", "Increases your walkspeed.", 500, 1, function(s) -- 500 (MaxValue) | 0 (MinValue) --Speed doesn't work right now in YBA, but it does in every other game. I need help on this problem, thank you!
   print('Walkspeed set')
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
@@ -16,17 +18,7 @@ end)
 PlayerSection1:NewSlider("Jump Power", "Increases your jump power.", 500, 1, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
---INVISIBILITY (TOGGLE)
-PlayerSection1:NewToggle("Invisibility", "Makes you invisible", function(state)
-    if state then
-        print("Toggle On")
-       local character = game.Players.LocalPlayer.Character 
-       character.Parent = game.Workspace
-    else
-        print("Toggle Off")
-        character.Parent = game.Players.LocalPlayer
-    end
-end)
+--INVISIBILITY (TOGGLE, TO DO)
 
 
 
@@ -34,6 +26,15 @@ end)
 PlayerSection1:NewButton("Suicide", "Oh, so sad.", function()
     print("Somebody killed themselves.")
      game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
+--ENABLE JUMP POWER
+Section:NewToggle("Enable Jump Power", "Enables Your Jump Power", function(state, s)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    else
+        pgame.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
 end)
 
 --Misc Tab
