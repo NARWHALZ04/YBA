@@ -16,7 +16,7 @@ PlayerSection1:NewSlider("Walkspeed", "Increases your walkspeed.", 500, 1, funct
 end)
 --JUMP 
 PlayerSection1:NewSlider("Jump Power", "Increases your jump power.", 500, 1, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    print("Jump Power Set.")
 end)
 --INVISIBILITY (TOGGLE, TO DO)
 
@@ -33,7 +33,7 @@ Section:NewToggle("Enable Jump Power", "Enables Your Jump Power", function(state
     if state then
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
     else
-        pgame.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     end
 end)
 
